@@ -1,0 +1,11 @@
+{
+    "threme1":{
+        "primary":"#2F2E2E",
+        "second":"#F4F4F4",
+        "third":"#fff",
+        "fourth":"#FFE587",
+        "fifth":"rgba(255, 229, 135, 0.35)",
+        "sixth":"#EEEAEA",
+        "seventh":"rgba(0, 0, 0, 0.10)"
+    }
+}

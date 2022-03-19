@@ -1,0 +1,14 @@
+.paginacion{
+    .pagina{
+        box-sizing: border-box;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 17px 17px 17px;
+    }
+    .icoleft{
+        height: 1.3rem;
+    }
+    .icoright{
+        height: 1.3rem;
+        transform: rotate(180deg);
+    }
+}

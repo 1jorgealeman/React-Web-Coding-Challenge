@@ -1,0 +1,39 @@
+.content{
+    font-size: 0.9rem;
+}
+
+.card{
+    border-radius: 0px 20px 20px 80px;
+    
+}
+
+.nullImg{
+    width:100%;
+    height:100%;
+    border-radius: 0px 0px 0px 50px;
+}
+
+.imgConvert{
+    width: 50%;
+    filter: invert(60%);
+}
+
+.fiximg{
+    height:100%;
+    width: 16rem;
+    border-radius: 0px 0px 0px 30px;
+}
+
+.spinner{
+    position:relative;
+    left:45%;
+    right: 50%;
+    width: 10%;
+}
+
+.bag{
+    
+    span{
+        border-radius: 25px;
+    }
+}
