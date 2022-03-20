@@ -1,9 +1,21 @@
+@import "./../../index.scss";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap');
 .fontLogo{
     h2{
       padding-top: 2rem;
       font-family: 'Roboto';
       font-style: normal;
+
+      @include from(s){
+        font-size: 1.4rem;
+      }
+      @include from(m){
+        font-size: 2.1rem;
+      }
+      @include from(l){
+        font-size: 3rem;
+      }
+
     }
   
     p{
@@ -17,5 +29,14 @@
   }
   
   .logo{
-    width: 40%;
+    @include from(s){
+      width: 45%; 
+      margin-bottom: -1.5rem; 
+    }
+    @include from(m){
+      width: 80%;  
+    }
+    @include from(l){
+      width: 50%;
+    }
   }

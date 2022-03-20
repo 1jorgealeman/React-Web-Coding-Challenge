@@ -5,6 +5,7 @@ const TableState={
     Paginas:10
 };
 
+//Variables
 let url="https://bikeindex.org:443/api/v3/search?page=1&per_page=100&location=Berlin&distance=100&stolenness=proximity"
 let data=null
 let B=null
@@ -80,16 +81,16 @@ export const SearchAction = (Buscar,from,to) => async (dispatch,getState) =>{
 
 export const paginacionAction = (type,number=0) => async (dispatch,getState) =>{
     try {
-        let total=getState().Data.dataEntera.bikes.length ;
+        let total=Math.ceil(getState().Data.dataT.bikes.length/10);
         let paginaL=10;
        if(type === 1){
             getState().Data.Paginas<=10? paginaL=10 :paginaL=getState().Data.Paginas - 10;
        }else if(type === 2){
-            getState().Data.Paginas>=total? paginaL=total :paginaL=getState().Data.Paginas + 10;
+            getState().Data.Paginas>=(total*10) ? paginaL=(total*10) :paginaL=getState().Data.Paginas + 10;
        }else if(type === 3){
             paginaL=10
         }else if(type === 4){
-            paginaL=total
+            paginaL=(total*10)
         }
         else if(type === 5){
             paginaL=number;

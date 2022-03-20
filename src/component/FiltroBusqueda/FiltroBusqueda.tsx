@@ -29,16 +29,15 @@ const FiltroBusqueda=()=>{
     ));
 
     return(
-        <div className="ed-grid s-grid-6 ">
-            <div className="s-x-2 s-cols-2 ">
+        <div className="ed-grid s-grid-8 l-grid-9 ">
+            <div className="l-x-2 s-cols-8 m-cols-4 l-cols-3 s-mb-2 m-mb-0">
                 <div className="input-wrapper">
                     <input type="search" className="input" onChange={(e)=>setBuscar(e.target.value)} placeholder="Search case descriptions"/>
                     <img className="input-icon" src={search} />
                 </div>
             </div>
-            <div>
+            <div className="m-cols-2 s-cols-4 ">
                 <div className="input-wrapper">
-                
                     <DatePicker
                         selected={startDateFrom}
                         onChange={(date:Date) => setStartDateFrom(date)}
@@ -46,7 +45,7 @@ const FiltroBusqueda=()=>{
                         <img className="input-icon" src={today} />
                 </div>
             </div>
-            <div>
+            <div className=" m-cols-2 s-cols-4 ">
                 <div className="input-wrapper">
                     <DatePicker
                         selected={startDateTo}

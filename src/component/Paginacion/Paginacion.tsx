@@ -6,133 +6,89 @@ import {paginacionAction} from "../../Redux/Dusk/TableReducer"
 import {useDispatch,useSelector} from 'react-redux';
 import {IData,} from "../../interface/Table";
 import {IRootObject} from "../../interface/Bikes";
-import { match } from "assert"
+
 
 
 const Paginacion = ()=>{
-    const pagina=useSelector((store:IData)=>store.Data?.Paginas as number);
-    const data=useSelector((store:IData)=>store.Data?.dataT as IRootObject);
-    const disparador=useDispatch();
-    
 
+    // const pagina=useSelector((store:IData)=>store.Data?.Paginas as number);
+    const data=useSelector((store:IData)=>store.Data?.dataT as IRootObject);
+    const paginaActual=useSelector((store:IData)=>store.Data?.Paginas as number);
+    const disparador=useDispatch();
+
+    const stactive={
+        backgroundColor: config.threme1.fourth,
+        border:"1px solid "+config.threme1.seventh
+    }
+    
     const stColorDeFondo={
         backgroundColor:"#fff",
         border:"1px solid "+config.threme1.seventh
     }
 
+    const AnchoDePagina=()=>{
+        let nopaginas=Math.ceil(data.bikes.length/10)
+        let item=[]
+        for (let index = 0; index < nopaginas; index++){
+            let Estilo=index+1==(paginaActual/10)?stactive:stColorDeFondo
+            
+            if(index>5){
+                index=nopaginas
+                item.push(
+                    <div className="s-px-1" >
+                        <div className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
+                            ...
+                        </div>
+                    </div>
+                )
+            }else{
+            item.push(
+                <div className="s-px-1">
+                    <div  onClick={
+                        ()=>{
+                            window.scroll({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                        
+                            disparador(paginacionAction(5,(index+1)*10))}} className=" s-py-1 s-main-center pagina" style={Estilo}
+                        >
+                        {index+1}
+                    </div>
+                </div>
+            )
+            }
+        }
+        return(item)
+    }
+
     return(
-        <div className="ed-grid s-grid-19 s-pb-4 paginacion gap-1">
-            <div className="s-x-4 s-px-0 btn">
-                <div onClick={  ()=>{
-                    window.scroll({
-                        top: 0,
-                        behavior: 'smooth'
-                      });
-                    disparador(paginacionAction(1))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
-                    <img className=" icoleft" src={left}/>
-                </div>
-            </div>
-            <div className="s-px-0">
-                <div onClick={()=>{
-                    window.scroll({
-                        top: 0,
-                        behavior: 'smooth'
-                      });
-                      disparador(paginacionAction(3))}}  className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
-                    <img className="icoleft" src={leftTotal}/>
-                </div>
-            </div>
-            <div className="s-px-1">
-                <div  onClick={
-                    ()=>{
+        <div className="ed-container paginacion s-main-center s-mb-2">
+            <div >
+                <div className="btn">
+                    <div onClick={  ()=>{
                         window.scroll({
                             top: 0,
                             behavior: 'smooth'
-                          });
-                        disparador(paginacionAction(5,10))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
-                1
-                
+                        });
+                            disparador(paginacionAction(1))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
+                        <img className=" icoleft" src={left}/>
+                    </div>
                 </div>
             </div>
-            <div className="s-px-1">
+            <div >
                 <div onClick={()=>{
                     window.scroll({
                         top: 0,
                         behavior: 'smooth'
-                      });
-                    disparador(paginacionAction(5,20))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
-                    2
+                    });
+                        disparador(paginacionAction(3))}}  className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
+                    <img className="icoleft" src={leftTotal}/>
                 </div>
             </div>
-            <div  className="s-px-1">
-                <div onClick={()=>{
-                    window.scroll({
-                        top: 0,
-                        behavior: 'smooth'
-                      });
-                    disparador(paginacionAction(5,30))}} className=" s-py-1 s-main-center pagina"  style={stColorDeFondo}>
-                    3
-                </div>
-            </div>
-            <div  className="s-px-1">
-                <div onClick={()=>{
-                    window.scroll({
-                        top: 0,
-                        behavior: 'smooth'
-                      });
-                    disparador(paginacionAction(5,40))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
-                    4
-                </div>
-            </div>
-            
-            <div  className="s-px-1">
-                <div onClick={()=>{
-                    window.scroll({
-                        top: 0,
-                        behavior: 'smooth'
-                      });
-                    disparador(paginacionAction(5,50))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
-                    5
-                </div>
-            </div>
-            <div  className="s-px-1">
-                <div onClick={()=>{
-                    window.scroll({
-                        top: 0,
-                        behavior: 'smooth'
-                      });
-                    disparador(paginacionAction(5,60))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
-                    6
-                </div>
-            </div>
-            <div  className="s-px-1">
-                <div onClick={()=>{
-                    window.scroll({
-                        top: 0,
-                        behavior: 'smooth'
-                      });
-                    disparador(paginacionAction(5,70))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
-                    7
-                </div>
-            </div>
-            <div  className="s-px-1">
-                <div onClick={()=>{
-                    window.scroll({
-                        top: 0,
-                        behavior: 'smooth'
-                      });
-                    disparador(paginacionAction(5,80))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
-                    8
-                </div>
-            </div>
-            <div  className="s-px-1">
-                <div onClick={()=>{
-                    window.scroll({
-                        top: 0,
-                        behavior: 'smooth'
-                      });
-                    disparador(paginacionAction(5,90))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
-                    9
+            <div className="">
+                <div className="ed-container">
+                    {AnchoDePagina()}
                 </div>
             </div>
             <div className="s-px-0">
@@ -141,7 +97,7 @@ const Paginacion = ()=>{
                         top: 0,
                         behavior: 'smooth'
                       });
-                    disparador(paginacionAction(4))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
+                        disparador(paginacionAction(4))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
                     <img className="icoright" src={leftTotal}/>
                 </div>
             </div>
@@ -151,7 +107,7 @@ const Paginacion = ()=>{
                         top: 0,
                         behavior: 'smooth'
                       });
-                    disparador(paginacionAction(2))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
+                        disparador(paginacionAction(2))}} className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
                 <img className=" icoright" src={left}/>
                 </div>
             </div>

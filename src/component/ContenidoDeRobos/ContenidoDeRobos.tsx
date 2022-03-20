@@ -8,7 +8,7 @@ import {useDispatch,useSelector} from 'react-redux';
 
 
 
-const ContenidoDeRobos=()=>{    
+const ContenidoDeRobos=()=>{
     const disparador=useDispatch();
     const datet=useSelector((store:IData)=>store.Data?.dataT as IRootObject );
     const verificador=useSelector((store:IData)=>store.Data?.dataEntera as IRootObject );
@@ -45,7 +45,7 @@ const ContenidoDeRobos=()=>{
                     data.stolen===true?
                     <article key={data.id}>
                         <div className="ed-grid s-grid-9 s-gap-0 card s-shadow-bottom" style={stCard}>
-                            <div className=" m-cols-2 fiimg " >
+                            <div className=" m-cols-2 " >
                                 {data.large_img?<img alt="Bike" className="fiximg  " src={data.large_img}/>:<div className="nullImg s-pxy-4 s-main-center " style={ stImgnull }><img alt="none" className="imgConvert"  src={notbike} /></div>}
                             </div>
                             <div className="ed-grid s-grid-1  m-cols-7 s-px-2 content">

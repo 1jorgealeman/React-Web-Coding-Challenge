@@ -3,14 +3,14 @@
 }
 
 .card{
-    border-radius: 0px 20px 20px 80px;
+    border-radius: 20px 20px 20px 20px;
     
 }
 
 .nullImg{
     width:100%;
     height:100%;
-    border-radius: 0px 0px 0px 50px;
+    border-radius: 20px 0px 0px 20px;
 }
 
 .imgConvert{
@@ -21,7 +21,7 @@
 .fiximg{
     height:100%;
     width: 16rem;
-    border-radius: 0px 0px 0px 30px;
+    border-radius: 20px 0px 0px 20px;
 }
 
 .spinner{
@@ -32,7 +32,6 @@
 }
 
 .bag{
-    
     span{
         border-radius: 25px;
     }
