@@ -1,3 +1,4 @@
+@import "../../index.scss";
 .content{
     font-size: 0.9rem;
 }
@@ -10,7 +11,13 @@
 .nullImg{
     width:100%;
     height:100%;
-    border-radius: 20px 0px 0px 20px;
+    @include from(s){
+        border-radius: 20px 20px 0px 0px;
+    }
+    @include from(m){
+        border-radius: 20px 0px 0px 20px;    
+    }
+    
 }
 
 .imgConvert{
@@ -20,8 +27,14 @@
 
 .fiximg{
     height:100%;
-    width: 16rem;
-    border-radius: 20px 0px 0px 20px;
+    @include from(s){
+        border-radius: 20px 20px 0px 0px;
+        width: 100%;
+    }
+    @include from(m){
+        width: 16rem;
+        border-radius: 20px 0px 0px 20px;    
+    }
 }
 
 .spinner{
@@ -33,6 +46,7 @@
 
 .bag{
     span{
+        
         border-radius: 25px;
     }
 }
