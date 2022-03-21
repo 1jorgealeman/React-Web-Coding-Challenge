@@ -39,9 +39,23 @@
 
 .spinner{
     position:relative;
-    left:45%;
-    right: 50%;
-    width: 10%;
+    right: 40%;
+    @include from(l){
+        left:43%;
+        width: 15%;
+    }
+
+    @include from(m){
+        left:38%;
+        width: 25%;
+    }
+
+    @include from(s){
+        left:25%;
+        width: 55%;
+    }
+
+
 }
 
 .bag{
