@@ -11,7 +11,7 @@ import {IRootObject} from "../../interface/Bikes";
 
 const Paginacion = ()=>{
 
-    // const pagina=useSelector((store:IData)=>store.Data?.Paginas as number);
+    const pagina=useSelector((store:IData)=>store.Data?.Paginas as number);
     const data=useSelector((store:IData)=>store.Data?.dataT as IRootObject);
     const paginaActual=useSelector((store:IData)=>store.Data?.Paginas as number);
     const disparador=useDispatch();
@@ -31,34 +31,46 @@ const Paginacion = ()=>{
         let item=[]
         for (let index = 0; index < nopaginas; index++){
             let Estilo=index+1==(paginaActual/10)?stactive:stColorDeFondo
-            
-            if(index>5){
+            if(index>9){
                 index=nopaginas
                 item.push(
-                    <div className="s-px-1" >
+                    <div className="s-px-1 from-m" >
                         <div className=" s-py-1 s-main-center pagina" style={stColorDeFondo}>
                             ...
                         </div>
                     </div>
                 )
             }else{
-            item.push(
-                <div className="s-px-1">
-                    <div  onClick={
-                        ()=>{
-                            window.scroll({
-                                top: 0,
-                                behavior: 'smooth'
-                            });
-                        
-                            disparador(paginacionAction(5,(index+1)*10))}} className=" s-py-1 s-main-center pagina" style={Estilo}
-                        >
-                        {index+1}
+                item.push(
+                    <div className={"s-px-1 from-m"} >
+                        <div  onClick={
+                            ()=>{
+                                window.scroll({
+                                    top: 0,
+                                    behavior: 'smooth'
+                                });
+                            
+                                disparador(paginacionAction(5,(index+1)*10))}} className=" s-py-1 s-main-center pagina" style={Estilo}
+                            >
+                            {index+1}
+                        </div>
                     </div>
-                </div>
-            )
+                )
             }
+
+
+            if(index<1){
+                item.push(
+                    <div className={"s-px-1 to-m"} >
+                        <div className=" s-py-1 s-main-center pagina" style={index+(pagina/10)==(paginaActual/10)?stactive:stColorDeFondo}>
+                            {index<=(pagina/10)?index+(pagina/10):null}
+                        </div>
+                    </div>
+                )
+            }
+
         }
+        
         return(item)
     }
 

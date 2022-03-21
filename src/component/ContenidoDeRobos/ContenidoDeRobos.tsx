@@ -62,10 +62,10 @@ const ContenidoDeRobos=()=>{
                                 </p>
                                 <br />
                                 <div className=" ed-grid m-grid-2 l-grid-14 l-right s-mb-1 l-cross-end l-main-end bag gap-1">
-                                    <span className="s-pxy-1 s-main-start m-main-end l-x-4 l-cols-3"  >Robbery date:</span>
+                                    <span className="s-pxy-1 s-main-start m-main-end l-x-4 l-cols-3" >Robbery date:</span>
                                     <span className="s-pxy-1 s-mb-1 l-mb-0  l-ml-0 s-main-center l-cols-2" style={stBag}> {new Intl.DateTimeFormat('en-US').format(data.date_stolen*1000 )} </span>
                                     <span className="s-pxy-1 s-main-start m-main-end l-cols-3 l-cols-4 " > Year of theft notification:</span>
-                                    <span className="s-pxy-1 s-main-center  l-cols-1 l-cols-2" style={stBag}> {data.year?data.year+" ":"N/A"} </span> 
+                                    <span className="s-pxy-1 s-main-center  l-cols-1 l-cols-2" style={stBag}> {data.year?data.year+" ":"N/A"} </span>
                                 </div>
                             </div>
                         </div>
