@@ -7,7 +7,8 @@ import Paginacion from "./component/Paginacion/Paginacion"
 import config from "./config/therme.json"
 function App() {
   const stColor={
-    backgroundColor: config.threme1.second
+    backgroundColor: config.threme1.second,
+    minHeight:"100vh"
   }
   return (
     <div style={stColor}>
