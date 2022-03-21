@@ -13,6 +13,8 @@ const ContenidoDeRobos=()=>{
     const datet=useSelector((store:IData)=>store.Data?.dataT as IRootObject );
     const verificador=useSelector((store:IData)=>store.Data?.dataEntera as IRootObject );
     const paginas=useSelector((store:IData)=>store.Data?.Paginas as number );
+    const Errort= useSelector((store:IData)=>store.Data?.error as boolean );
+
     
     const stCard={
         backgroundColor: config.threme1.sixth,
@@ -30,17 +32,30 @@ const ContenidoDeRobos=()=>{
         return(
             <article>
                 <div className="ed-grid s-grid-9 s-gap-0 card s-shadow-bottom" style={stCard}>
-                    <div className="ed-grid s-grid-1  m-cols-9 s-px-2 content s-cross-center ">
+                    <div className="ed-grid s-grid-1  s-cols-9 s-px-2 content s-cross-center ">
                         <h3 className="s-py-4 s-main-center">Not result</h3>
                     </div>
                 </div>
             </article>
         )
     }
+
+    const Error=()=>{
+        return(
+            <article>
+                <div className="ed-grid s-grid-9 s-gap-0 card s-shadow-bottom" style={stCard}>
+                    <div className="ed-grid s-grid-1  s-cols-9 s-px-2 content s-cross-center ">
+                        <h3 className="s-py-4 s-main-center" style={{color:"red"}}>Ooops something went wrong</h3>
+                    </div>
+                </div>
+            </article>
+        )
+    }
+
     
     return(
         <div className=" ed-grid s-grid-1 s-pxy-4 ">
-            {verificador.bikes?datet.bikes.slice(paginas-10, paginas).length>0?datet.bikes.slice(paginas-10, paginas).map((data) =>{
+            {Errort!==true?verificador.bikes?datet.bikes.slice(paginas-10, paginas).length>0?datet.bikes.slice(paginas-10, paginas).map((data) =>{
                 return (
                     data.stolen===true?
                     <article key={data.id}>
@@ -71,7 +86,7 @@ const ContenidoDeRobos=()=>{
                         </div>
                     </article>:null
                 )
-            }):<NoResultado/>:<img alt="spinner" className="spinner" src={spinner} />}
+            }):<NoResultado/>:<img alt="spinner" className="spinner" src={spinner} />:<Error/>}
         </div>
     )
 }

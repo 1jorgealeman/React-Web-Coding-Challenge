@@ -2,7 +2,8 @@
 const TableState={
     dataT:{bikes:[]},
     dataEntera:{},
-    Paginas:10
+    Paginas:10,
+    error:false
 };
 
 //Variables
@@ -10,11 +11,13 @@ let url="https://bikeindex.org:443/api/v3/search?page=1&per_page=100&location=Be
 let data=null
 let B=null
 let pagina=null
+let Error=null
 
 //types
 const OPTENER_DATOS_DE_API="OPTENER_DATOS_DE_API";
 const BUSQUEDA_DE_DATOS="BUSQUEDA_DE_DATOS";
 const PAGINACION="PAGINACION";
+const ERROR="ERROR";
 
 //reducer
 export default function TableReducer(state=TableState,action){
@@ -31,9 +34,14 @@ export default function TableReducer(state=TableState,action){
             return {...state, dataT:{bikes:B} }
         case PAGINACION:
             if(action.payload!==""){
-                pagina=action.payload;
+                Error=action.payload;
             }
-            return {...state, Paginas:pagina }
+            return {...state, error:Error }
+        case ERROR:
+                if(action.payload!==""){
+                    pagina=action.payload;
+                }
+                return {...state, Paginas:pagina }
         default:
             return state
     }
@@ -51,6 +59,10 @@ export const InitTableAction = () => async (dispatch,getState) =>{
 
     } catch (error) {
         console.log(error)
+        dispatch({
+            type:ERROR,
+            payload: true
+        })
     }
 }
 
@@ -76,6 +88,10 @@ export const SearchAction = (Buscar,from,to) => async (dispatch,getState) =>{
 
     } catch (error) {
         console.log(error)
+        dispatch({
+            type:ERROR,
+            payload: true
+        })
     }
 }
 
@@ -103,5 +119,9 @@ export const paginacionAction = (type,number=0) => async (dispatch,getState) =>{
 
     } catch (error) {
         console.log(error)
+        dispatch({
+            type:ERROR,
+            payload: true
+        })
     }
 }

@@ -6,6 +6,7 @@ export  interface IData{
 
 export  interface IDataT{
     dataT?:IRootObject,
-    dataEntera?:IRootObject
-    Paginas?:number
+    dataEntera?:IRootObject,
+    Paginas?:number,
+    error:boolean
 }
